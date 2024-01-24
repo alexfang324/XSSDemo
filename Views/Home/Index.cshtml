@@ -1,0 +1,19 @@
+﻿@model XSSDemo.ViewModels.FeedbackVM
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label for="Comment">Your Feedback</label>
+        @Html.TextAreaFor(m => m.Comment,
+                             new { @class = "form-control", @rows = "3" })
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    if (ViewBag.Comment != null)
+    {
+        <div class="alert alert-success mt-3">
+            <strong>Your Feedback:</strong> @Html.Raw(ViewBag.Comment)
+        </div>
+    }
+}
